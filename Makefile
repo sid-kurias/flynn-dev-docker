@@ -82,7 +82,7 @@ bin/forego:
 bin/etcd:
 	wget https://github.com/coreos/etcd/releases/download/v0.2.0-rc1/etcd-v0.2.0-rc1-Linux-x86_64.tar.gz
 	tar -zxvf etcd-v0.2.0-rc1-Linux-x86_64.tar.gz
-	cp etcd-v0.2.0-rc1-Linux-x86_64/etcd bin
+	cp etcd-v0.2.0-rc1-Linux-x86_64/etcd ../../../../bin
 
 /etc/default/docker:
 	 bash -c "echo 'DOCKER_OPTS=\"-H 127.0.0.1\"' > /etc/default/docker"
