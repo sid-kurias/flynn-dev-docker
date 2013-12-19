@@ -37,4 +37,4 @@ Prerequisites
   tar -zxvf godeb.tar.gz
 3. The godeb, docker and wrapdocker binaries should be in the same directory as
    the Dockerfile.
-4. docker build -t YOUR TAG NAME .
+4. docker build -t 'YOUR TAG NAME' .
