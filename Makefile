@@ -1,5 +1,3 @@
-DOCKER=docker -H 127.0.0.1
-
 run: all
 	bin/forego start
 
@@ -68,11 +66,11 @@ bin/flynn-cli:  bin/flynn-controller
 bin/strowger:  bin/discoverd
 	go get -v github.com/flynn/strowger
 
-slugbuilder: /usr/bin/docker
-	@${DOCKER} images | grep flynn/slugbuilder > /dev/null || ${DOCKER} pull flynn/slugbuilder
+slugbuilder: 
+	@docker images | grep flynn/slugbuilder > /dev/null || docker pull flynn/slugbuilder
 
-slugrunner: /usr/bin/docker
-	@${DOCKER} images | grep flynn/slugrunner > /dev/null || ${DOCKER} pull flynn/slugrunner
+slugrunner: 
+	@docker images | grep flynn/slugrunner > /dev/null || docker pull flynn/slugrunner
 
 # Vendor
 
@@ -80,14 +78,10 @@ bin/forego:
 	go get -v github.com/ddollar/forego
 
 bin/etcd:
-	wget https://github.com/coreos/etcd/releases/download/v0.2.0-rc1/etcd-v0.2.0-rc1-Linux-x86_64.tar.gz
-	tar -zxvf etcd-v0.2.0-rc1-Linux-x86_64.tar.gz
-	cp etcd-v0.2.0-rc1-Linux-x86_64/etcd ../../../../bin
+#n	wget https://github.com/coreos/etcd/releases/download/v0.2.0-rc1/etcd-v0.2.0-rc1-Linux-x86_64.tar.gz
+#	tar -zxvf etcd-v0.2.0-rc1-Linux-x86_64.tar.gz
+#	cp etcd-v0.2.0-rc1-Linux-x86_64/etcd ../../../../bin
 
-/etc/default/docker:
-	 bash -c "echo 'DOCKER_OPTS=\"-H 127.0.0.1\"' > /etc/default/docker"
 
-/usr/bin/docker: /etc/default/docker
-	echo "Done installing docker"
 
 .PHONY: all slugrunner slugbuilder
