@@ -48,7 +48,7 @@ bin/gitreceived:
 	go get -v github.com/flynn/gitreceive-next/gitreceived
 
 bin/discoverd:  bin/etcd
-	go get -v github.com/flynn/go-discover/discoverd
+	go get -v github.com/flynn/discoverd
 
 bin/sdutil:  bin/discoverd
 	go get -v github.com/flynn/sdutil
